@@ -10,7 +10,7 @@ function App() {
         <InputBase
           Icon={Icon}
           width={220}
-          textAling="start"
+          onClick={() => console.log("onClick!")}
           onChange={(e) => setValue(e.target.value)}
           value={value}
           label="Label"
@@ -19,7 +19,7 @@ function App() {
           hasError={false}
           message="Caption"
           placeholder="Placeholder"
-          type="submit"
+          type="button"
         />
       </div>
     </div>

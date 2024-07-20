@@ -8,4 +8,5 @@ export interface InputBaseProps extends Partial<HTMLInputElement> {
   Icon?: string;
   textAling?: "start" | "end" | "center";
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
 }

@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./styles";
 import { InputBaseProps } from "./index.types";
 
-const InputBase: React.FC<InputBaseProps> = ({
+const InputBase: React.FC<Partial<InputBaseProps>> = ({
   name,
   label,
   value,
@@ -10,7 +10,6 @@ const InputBase: React.FC<InputBaseProps> = ({
   Icon,
   placeholder,
   message,
-  onChange,
   textAling,
   textError,
   hasError,
@@ -24,7 +23,7 @@ const InputBase: React.FC<InputBaseProps> = ({
         <S.InputContent>
           {Icon && <img src={Icon} />}
           <S.StyledInput
-            onChange={onChange}
+            {...props}
             id={name}
             type={type}
             placeholder={placeholder}

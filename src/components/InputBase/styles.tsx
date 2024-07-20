@@ -9,7 +9,7 @@ export const InputContainer = styled.div<{ width?: number }>`
 
 export const InputWrapper = styled.div<{ icon?: boolean }>`
   background-color: #fff;
-
+  cursor: pointer;
   width: 100%;
   border-radius: 8px;
   border: 1px solid #cfcfcffc;
@@ -33,11 +33,13 @@ export const InputWrapper = styled.div<{ icon?: boolean }>`
   }
 `;
 
-export const StyledInput = styled.input<{
-  textAlign?: "start" | "end" | "center";
-}>`
+export const StyledInput = styled.input<
+  {
+    textAlign?: "start" | "end" | "center";
+  } & Partial<HTMLInputElement>
+>`
   color: #30303090;
-
+  cursor: pointer;
   padding: 14px 0 14px 10px;
   width: 90%;
   height: 48px;
@@ -97,6 +99,7 @@ export const Label = styled.label`
   font-weight: 700;
   line-height: 21px;
   text-align: left;
+  cursor: pointer;
 `;
 
 export const InputContent = styled.div`
