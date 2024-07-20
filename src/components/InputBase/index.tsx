@@ -11,19 +11,32 @@ const InputBase: React.FC<InputBaseProps> = ({
   hasError,
   message,
   Icon,
+  onChange,
+  textError,
+  ...props
 }) => {
   return (
-    <S.InputWrapper>
-      <S.Label htmlFor={name}>aaaaaaaaaa{label}</S.Label>
-      {Icon && <Icon />}
-      <S.StyledInput
-        id={name}
-        type={type}
-        placeholder={placeholder}
-        aria-label={value}
-      />
-      {hasError && <S.Message>{message}</S.Message>}
-    </S.InputWrapper>
+    <S.InputContainer>
+      <S.Label htmlFor={name}>{label}</S.Label>
+      <S.InputWrapper icon={!!Icon}>
+        <S.InputContent>
+          {Icon && <img src={Icon} />}
+          <S.StyledInput
+            onChange={onChange}
+            id={name}
+            type={type}
+            placeholder={placeholder}
+            value={value}
+          />
+        </S.InputContent>
+      </S.InputWrapper>
+
+      {textError && hasError && (
+        <S.Message hasError={!!textError}>{textError}</S.Message>
+      )}
+
+      {!hasError && message && <S.Message>{message}</S.Message>}
+    </S.InputContainer>
   );
 };
 

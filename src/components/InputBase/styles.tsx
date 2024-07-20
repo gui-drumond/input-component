@@ -1,35 +1,87 @@
 import styled from "styled-components";
 
-export const InputWrapper = styled.div`
+export const InputContainer = styled.div`
   width: 100%;
+  height: 100px;
+  color: #30303090;
+  position: relative;
+`;
+
+export const InputWrapper = styled.div<{ icon?: boolean }>`
+  background-color: #fff;
+
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #cfcfcffc;
+
+  font-family: Open Sans;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  text-align: left;
+
+  &:hover {
+    border: 1px solid #00436d85;
+    outline: solid #005a9275 1.5px;
+  }
+
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    border: 1px solid #1a95b0;
+    outline: solid #0091ea80 1.5px;
+  }
 `;
 
 export const StyledInput = styled.input`
-  width: 100%;
-  border-radius: 8px;
-  border: 1px solid rgba(207, 207, 207, 0.988);
-  background-color: #fff;
-  color: rgba(48, 48, 48, 1);
-  padding: 14px 8px;
+  color: #30303090;
 
+  padding: 14px 0 14px 10px;
+  width: 90%;
+  height: 48px;
+
+  margin: auto;
   &::placeholder {
-    color: #323131;
+    color: #30303020;
+    line-height: 20px;
+  }
+
+  &:focus,
+  &:focus-visible,
+  &:focus-within {
+    outline: none;
+    border-color: #cb0a0a;
   }
 `;
 
 export const Message = styled.p<{ hasError?: boolean }>`
-  color: #cb0a0a;
+  color: ${({ hasError }) => (hasError ? "#cb0a0a" : "#303030")};
   margin-left: 10px;
+  margin-top: 4px;
+
+  font-family: Open Sans;
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 15px;
+  text-align: left;
 `;
 
 export const Label = styled.label`
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
+  color: #303030;
+  width: 100%;
+  font-family: Open Sans;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 21px;
+  text-align: left;
+`;
+
+export const InputContent = styled.div`
+  display: flex;
+  align-items: center;
+  position: relative;
+  img {
+    padding: 14px 8px;
+    position: absolute;
+  }
 `;
