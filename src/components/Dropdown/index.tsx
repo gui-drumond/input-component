@@ -1,8 +1,10 @@
 import React from "react";
 import * as S from "./styles";
-import { InputBaseProps } from "./index.types";
+import { DropdownProps } from "./index.types";
 
-const InputBase: React.FC<Partial<InputBaseProps>> = ({
+import Arrow from "./arrow.svg";
+
+const Dropdown: React.FC<Partial<DropdownProps>> = ({
   name,
   label,
   value,
@@ -16,13 +18,15 @@ const InputBase: React.FC<Partial<InputBaseProps>> = ({
   width,
   ...props
 }) => {
+  const [open, setOpen] = React.useState(false);
+
   return (
     <S.InputContainer width={width}>
       <S.Label htmlFor={name}>{label}</S.Label>
       <S.InputWrapper icon={!!Icon} hasError={hasError}>
         <S.InputContent>
           {typeof Icon === "string" && <img src={Icon} alt="Icone" />}
-          {typeof Icon === "function" && Icon}
+          {typeof Icon === "object" && Icon}
           <S.StyledInput
             {...props}
             id={name}
@@ -31,6 +35,10 @@ const InputBase: React.FC<Partial<InputBaseProps>> = ({
             value={value}
             textAlign={textAling}
           />
+
+          <S.ArrowIcon open={open} onClick={() => setOpen(!open)}>
+            <img src={Arrow} alt="Arrow" />
+          </S.ArrowIcon>
         </S.InputContent>
       </S.InputWrapper>
 
@@ -43,4 +51,4 @@ const InputBase: React.FC<Partial<InputBaseProps>> = ({
   );
 };
 
-export default InputBase;
+export default Dropdown;

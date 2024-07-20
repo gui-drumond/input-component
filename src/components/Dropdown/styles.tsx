@@ -108,10 +108,27 @@ export const InputContent = styled.div`
   display: flex;
   align-items: center;
   position: relative;
-  img {
+  width: 100%;
+  height: 100%;
+
+  & > img {
     width: 20px;
     height: 20px;
     margin: 14px 8px;
     position: absolute;
+  }
+`;
+
+export const ArrowIcon = styled.div<{ open: boolean }>`
+  position: absolute;
+  width: 20px;
+  height: 20px;
+
+  margin: auto;
+  right: 6px;
+  rotate: ${(props) => (props.open ? "180deg" : "0deg")};
+  img {
+    width: 20px;
+    height: 20px;
   }
 `;
