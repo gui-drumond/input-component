@@ -6,5 +6,6 @@ export interface InputBaseProps extends Partial<HTMLInputElement> {
   textError?: string;
   message?: string;
   Icon?: string;
+  textAling?: "start" | "end" | "center";
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

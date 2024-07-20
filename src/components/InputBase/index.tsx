@@ -3,20 +3,22 @@ import * as S from "./styles";
 import { InputBaseProps } from "./index.types";
 
 const InputBase: React.FC<InputBaseProps> = ({
-  value,
   name,
   label,
-  placeholder,
+  value,
   type,
-  hasError,
-  message,
   Icon,
+  placeholder,
+  message,
   onChange,
+  textAling,
   textError,
+  hasError,
+  width,
   ...props
 }) => {
   return (
-    <S.InputContainer>
+    <S.InputContainer width={width}>
       <S.Label htmlFor={name}>{label}</S.Label>
       <S.InputWrapper icon={!!Icon}>
         <S.InputContent>
@@ -27,6 +29,7 @@ const InputBase: React.FC<InputBaseProps> = ({
             type={type}
             placeholder={placeholder}
             value={value}
+            textAlign={textAling}
           />
         </S.InputContent>
       </S.InputWrapper>

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
-export const InputContainer = styled.div`
-  width: 100%;
+export const InputContainer = styled.div<{ width?: number }>`
+  width: ${(props) => `${props.width ? `${props.width}px` : "306px"}`};
   height: 100px;
   color: #30303090;
   position: relative;
@@ -33,14 +33,37 @@ export const InputWrapper = styled.div<{ icon?: boolean }>`
   }
 `;
 
-export const StyledInput = styled.input`
+export const StyledInput = styled.input<{
+  textAlign?: "start" | "end" | "center";
+}>`
   color: #30303090;
 
   padding: 14px 0 14px 10px;
   width: 90%;
   height: 48px;
 
-  margin: auto;
+  ${({ textAlign }) => {
+    if (textAlign === "end") {
+      return `
+      text-align: right;
+      margin-left: 25px;
+      margin-right: 20px;
+      `;
+    }
+    if (textAlign === "center") {
+      return `
+      text-align: center;
+      margin:auto;
+      padding-right: 10px;
+      `;
+    }
+    return `
+      text-align: left;
+      margin-left: 25px;
+      margin-right: 20px;
+      `;
+  }}
+
   &::placeholder {
     color: #30303020;
     line-height: 20px;
