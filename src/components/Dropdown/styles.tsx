@@ -135,7 +135,9 @@ export const DropDownContainer = styled.div<{ open: boolean }>`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: auto;
 
+  background-color: #fff;
   margin-top: 5px;
 
   outline: solid #cfcfcffc 1.5px;
@@ -145,6 +147,8 @@ export const DropDownContainer = styled.div<{ open: boolean }>`
   ${({ open }) =>
     open
       ? `
+      position: absolute;
+      z-index: 999;
       height: auto;
       min-height: 56px;
       
