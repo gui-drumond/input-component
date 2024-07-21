@@ -20,12 +20,9 @@ export const InputWrapper = styled.div<{ icon?: boolean; hasError?: boolean }>`
   line-height: 21px;
   text-align: left;
 
-  &:hover {
-    border: 1px solid
-      ${({ hasError }) => (hasError ? "#cb0a0a80" : "#00436d85")};
-    outline: solid ${({ hasError }) => (hasError ? "#cb0a0a60" : "#005a9275")}
-      1.5px;
-  }
+  border: 1px solid ${({ hasError }) => (hasError ? "#cb0a0a80" : "#00436d85")};
+  outline: solid ${({ hasError }) => (hasError ? "#cb0a0a60" : "#005a9275")}
+    1.5px;
 
   &:focus,
   &:focus-visible,
@@ -45,7 +42,8 @@ export const StyledInput = styled.input<
   cursor: pointer;
   padding: 14px 0 14px 10px;
   width: 90%;
-  height: 48px;
+
+  border: none;
 
   ${({ textAlign }) => {
     if (textAlign === "end") {
@@ -108,6 +106,7 @@ export const InputContent = styled.div`
   display: flex;
   align-items: center;
   position: relative;
+  height: 46px;
   img {
     width: 20px;
     height: 20px;

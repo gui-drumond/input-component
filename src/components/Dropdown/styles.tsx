@@ -20,12 +20,9 @@ export const InputWrapper = styled.div<{ icon?: boolean; hasError?: boolean }>`
   line-height: 21px;
   text-align: left;
 
-  &:hover {
-    border: 1px solid
-      ${({ hasError }) => (hasError ? "#cb0a0a80" : "#00436d85")};
-    outline: solid ${({ hasError }) => (hasError ? "#cb0a0a60" : "#005a9275")}
-      1.5px;
-  }
+  border: 1px solid ${({ hasError }) => (hasError ? "#cb0a0a80" : "#00436d85")};
+  outline: solid ${({ hasError }) => (hasError ? "#cb0a0a60" : "#005a9275")}
+    1.5px;
 
   &:focus,
   &:focus-visible,
@@ -36,16 +33,18 @@ export const InputWrapper = styled.div<{ icon?: boolean; hasError?: boolean }>`
   }
 `;
 
-export const StyledInput = styled.input<
-  {
-    textAlign?: "start" | "end" | "center";
-  } & Partial<HTMLInputElement>
->`
+export const StyledInput = styled.div<{
+  textAlign?: "start" | "end" | "center";
+}>`
   color: #30303090;
   cursor: pointer;
   padding: 14px 0 14px 10px;
   width: 90%;
-  height: 48px;
+
+  border: none;
+
+  display: flex;
+  align-items: center;
 
   ${({ textAlign }) => {
     if (textAlign === "end") {
@@ -109,8 +108,7 @@ export const InputContent = styled.div`
   align-items: center;
   position: relative;
   width: 100%;
-  height: 100%;
-
+  height: 46px;
   & > img {
     width: 20px;
     height: 20px;
@@ -131,4 +129,52 @@ export const ArrowIcon = styled.div<{ open: boolean }>`
     width: 20px;
     height: 20px;
   }
+`;
+
+export const DropDownContainer = styled.div<{ open: boolean }>`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  margin-top: 5px;
+
+  outline: solid #cfcfcffc 1.5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border-radius: 8px;
+
+  ${({ open }) =>
+    open
+      ? `
+      height: auto;
+      min-height: 56px;
+      
+  `
+      : `display: none;`}
+`;
+
+export const DropDownContent = styled.div`
+  width: 100%;
+  display: flex;
+
+  flex-direction: column;
+  align-self: center;
+
+  z-index: 2;
+  margin-top: 5px;
+  margin-left: 2px;
+
+  border-radius: 8px;
+  background-color: #005a9200;
+`;
+
+export const DropDownItem = styled.option<{ active?: boolean }>`
+  display: flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: start;
+  border-radius: 8px;
+  background-color: ${({ active }) => (active ? "#005a92" : "#fff")};
+
+  padding-left: 20px;
+  cursor: pointer;
 `;
