@@ -153,7 +153,7 @@ export const DropDownContainer = styled.div<{ open: boolean }>`
 `;
 
 export const DropDownContent = styled.div`
-  width: 100%;
+  width: 95%;
   display: flex;
 
   flex-direction: column;
@@ -161,7 +161,6 @@ export const DropDownContent = styled.div`
 
   z-index: 2;
   margin-top: 5px;
-  margin-left: 2px;
 
   border-radius: 8px;
   background-color: #005a9200;
@@ -172,9 +171,10 @@ export const DropDownItem = styled.option<{ active?: boolean }>`
   min-height: 46px;
   align-items: center;
   justify-content: start;
-  border-radius: 8px;
-  background-color: ${({ active }) => (active ? "#005a92" : "#fff")};
 
-  padding-left: 20px;
+  background-color: ${({ active }) => (active ? "#1a95b020" : "#fff")};
+  border-radius: 4px;
+  padding-left: 15px;
+  margin-bottom: 5px;
   cursor: pointer;
 `;

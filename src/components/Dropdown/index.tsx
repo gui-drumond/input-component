@@ -19,7 +19,7 @@ const Dropdown: React.FC<Partial<DropdownProps>> = ({
   disabled,
   options,
   onChange,
-  value: option,
+  value: optionState,
 }) => {
   const [open, setOpen] = React.useState(false);
 
@@ -31,7 +31,7 @@ const Dropdown: React.FC<Partial<DropdownProps>> = ({
           {typeof Icon === "string" && <img src={Icon} alt="Icone" />}
           {typeof Icon === "object" && Icon}
           <S.StyledInput id={name} textAlign={textAling}>
-            {defaultValue ?? option?.label ?? placeholder}
+            {defaultValue ?? optionState?.label ?? placeholder}
           </S.StyledInput>
 
           <S.ArrowIcon open={open}>
@@ -51,15 +51,20 @@ const Dropdown: React.FC<Partial<DropdownProps>> = ({
                   {defaultValue}
                 </S.DropDownItem>
               )}
-              {options?.map((op: OptionsProps, index: number) => (
-                <S.DropDownItem
-                  active={op.value === option?.value}
-                  key={`${index}-${option}`}
-                  onClick={(e: any) => onChange && onChange(e)}
-                >
-                  {option?.label}
-                </S.DropDownItem>
-              ))}
+              {options?.map((op: OptionsProps, index: number) => {
+                return (
+                  <S.DropDownItem
+                    active={op.label === optionState?.label}
+                    key={`${index}-${op}`}
+                    onClick={(e: any) => {
+                      onChange && onChange(e);
+                      setOpen(false);
+                    }}
+                  >
+                    {op?.label}
+                  </S.DropDownItem>
+                );
+              })}
             </S.DropDownContent>
           ))}
       </S.DropDownContainer>

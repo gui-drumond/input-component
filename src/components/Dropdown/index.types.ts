@@ -17,4 +17,7 @@ export interface DropdownProps {
   onClick?: (e: React.MouseEvent<HTMLInputElement>) => void;
 }
 
-export type OptionsProps = { value: string; label: string };
+export type OptionsProps = {
+  label: string;
+  value: string;
+};

@@ -12,10 +12,7 @@ function App() {
     },
     { value: "2", label: "Option 2" },
   ];
-  const [valueDropdown, setDropdown] = useState({
-    value: "2",
-    label: "Option 2",
-  });
+  const [valueDropdown, setDropdown] = useState(options[0]);
 
   return (
     <div className="App">
@@ -58,6 +55,24 @@ function App() {
           value={valueDropdown}
           options={options}
           hasError={true}
+          label="Label"
+          name="Search"
+          textError="Caption error"
+          message="Caption"
+          placeholder="Placeholder"
+        />
+        <Dropdown
+          Icon={<img src={Icon} alt="Icone" />}
+          width={220}
+          onChange={(e) =>
+            setDropdown({
+              value: e.target.value,
+              label: e.target.value,
+            })
+          }
+          value={valueDropdown}
+          options={options}
+          hasError={false}
           label="Label"
           name="Search"
           textError="Caption error"
